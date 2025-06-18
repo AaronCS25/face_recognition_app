@@ -1,0 +1,1 @@
+export 'individuals_view.dart';
