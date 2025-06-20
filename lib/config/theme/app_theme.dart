@@ -58,15 +58,59 @@ class AppTheme {
   static TextTheme _textTheme(Brightness brightness) {
     final isDark = brightness == Brightness.dark;
     return TextTheme(
-      headlineLarge: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, height: 28 / 18, color: isDark ? Colors.white : const Color(0xFF0F172A)),
-      headlineMedium: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, height: 28 / 18, color: isDark ? Colors.white : const Color(0xFF0F172A)),
-      titleMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, height: 24 / 16, color: isDark ? Colors.white : const Color(0xFF0F172A)),
-      bodyLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, height: 20 / 14, color: isDark ? Colors.white : const Color(0xFF0F172A)),
-      bodyMedium: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, height: 16 / 12, color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B)),
-      bodySmall: TextStyle(fontSize: 11, fontWeight: FontWeight.w400, height: 16 / 11, color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B)),
-      labelLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, height: 20 / 14, color: isDark ? Colors.white : const Color(0xFF0F172A)),
-      labelMedium: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, height: 16 / 12, color: isDark ? Colors.white : const Color(0xFF0F172A)),
-      labelSmall: const TextStyle(fontSize: 11, fontWeight: FontWeight.w500, height: 16 / 11),
+      headlineLarge: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        height: 28 / 18,
+        color: isDark ? Colors.white : const Color(0xFF0F172A),
+      ),
+      headlineMedium: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w500,
+        height: 28 / 18,
+        color: isDark ? Colors.white : const Color(0xFF0F172A),
+      ),
+      titleMedium: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+        height: 24 / 16,
+        color: isDark ? Colors.white : const Color(0xFF0F172A),
+      ),
+      bodyLarge: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        height: 20 / 14,
+        color: isDark ? Colors.white : const Color(0xFF0F172A),
+      ),
+      bodyMedium: TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        height: 16 / 12,
+        color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+      ),
+      bodySmall: TextStyle(
+        fontSize: 11,
+        fontWeight: FontWeight.w400,
+        height: 16 / 11,
+        color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+      ),
+      labelLarge: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+        height: 20 / 14,
+        color: isDark ? Colors.white : const Color(0xFF0F172A),
+      ),
+      labelMedium: TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        height: 16 / 12,
+        color: isDark ? Colors.white : const Color(0xFF0F172A),
+      ),
+      labelSmall: const TextStyle(
+        fontSize: 11,
+        fontWeight: FontWeight.w500,
+        height: 16 / 11,
+      ),
     );
   }
 
@@ -86,7 +130,9 @@ class AppTheme {
     final isDark = brightness == Brightness.dark;
     return TextButtonThemeData(
       style: TextButton.styleFrom(
-        foregroundColor: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF475569),
+        foregroundColor: isDark
+            ? const Color(0xFFCBD5E1)
+            : const Color(0xFF475569),
         textStyle: const TextStyle(fontSize: 14),
       ),
     );
@@ -96,9 +142,13 @@ class AppTheme {
     final isDark = brightness == Brightness.dark;
     return OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
-        backgroundColor: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+        backgroundColor: isDark
+            ? const Color(0xFF334155)
+            : const Color(0xFFE2E8F0),
         foregroundColor: isDark ? Colors.white : const Color(0xFF0F172A),
-        side: BorderSide(color: isDark ? const Color(0xFF475569) : const Color(0xFFCBD5E1)),
+        side: BorderSide(
+          color: isDark ? const Color(0xFF475569) : const Color(0xFFCBD5E1),
+        ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
       ),
     );
