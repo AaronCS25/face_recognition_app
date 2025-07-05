@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cvpr_face_recognition/config/helpers/human_formats.dart';
+import 'package:cvpr_face_recognition/config/config.dart';
 
 class ScoreTag extends StatelessWidget {
   final double score;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:cvpr_face_recognition/config/helpers/human_formats.dart';
+import 'package:cvpr_face_recognition/config/config.dart';
+import 'package:cvpr_face_recognition/features/shared/shared.dart';
 import 'package:cvpr_face_recognition/features/individuals/individuals.dart';
-import 'package:cvpr_face_recognition/features/individuals/presentation/widgets/score_tag.dart';
 
 class LogEntryCard extends StatelessWidget {
   final ProfileLogEntryEntity logEntry;
