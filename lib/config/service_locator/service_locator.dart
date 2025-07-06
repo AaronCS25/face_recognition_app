@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:cvpr_face_recognition/features/history/history.dart';
 import 'package:cvpr_face_recognition/features/individuals/individuals.dart';
 
 class ServiceLocator {
@@ -9,6 +10,10 @@ class ServiceLocator {
   static Future<void> init() async {
     _getIt.registerLazySingleton<ProfileRepositoryImpl>(
       () => ProfileRepositoryImpl(datasource: LocalProfileDatasourceImpl()),
+    );
+
+    _getIt.registerLazySingleton<HistoryRepository>(
+      () => HistoryRepositoryImpl(LocalHistoryDatasourceImpl()),
     );
   }
 }
