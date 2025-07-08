@@ -49,7 +49,7 @@ class AppTheme {
         elevation: 1,
       ),
       cardColor: const Color(0xFFF8FAFC),
-      dividerColor: const Color(0xFFCBD5E1),
+      dividerColor: const Color(0xFF1E293B),
       cardTheme: _cardTheme(Brightness.light),
       elevatedButtonTheme: _elevatedButtonTheme(Brightness.light),
       textButtonTheme: _textButtonTheme(Brightness.light),
