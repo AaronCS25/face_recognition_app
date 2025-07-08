@@ -120,12 +120,6 @@ class _IndividualsDetailsViewBodyState
                 ),
                 const SizedBox(height: 24),
                 Card(
-                  color: theme.cardColor,
-                  margin: const EdgeInsets.all(0.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                    side: BorderSide(color: theme.dividerColor),
-                  ),
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(

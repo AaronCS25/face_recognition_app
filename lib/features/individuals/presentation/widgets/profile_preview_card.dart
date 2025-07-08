@@ -16,13 +16,6 @@ class ProfilePreviewCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => context.push("/individuals/${profilePreview.id}"),
       child: Card(
-        elevation: 0,
-        margin: const EdgeInsets.all(0.0),
-        shape: RoundedRectangleBorder(
-          side: const BorderSide(color: Color(0xFF334155), width: 0.8),
-          borderRadius: BorderRadius.circular(8.0),
-        ),
-        color: theme.cardColor,
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Row(

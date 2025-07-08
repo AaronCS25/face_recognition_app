@@ -19,14 +19,7 @@ class RecognitionHistoryItemWidget extends StatelessWidget {
     );
 
     return Card(
-      elevation: 0,
       clipBehavior: Clip.hardEdge,
-      margin: const EdgeInsets.all(0.0),
-      shape: RoundedRectangleBorder(
-        side: const BorderSide(color: Color(0xFF334155), width: 0.8),
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      color: theme.cardColor,
       child: Theme(
         data: theme.copyWith(
           splashFactory: NoSplash.splashFactory,

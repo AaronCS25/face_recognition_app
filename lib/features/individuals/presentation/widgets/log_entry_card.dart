@@ -13,12 +13,6 @@ class LogEntryCard extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Card(
-      color: theme.cardColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-        side: BorderSide(color: theme.dividerColor),
-      ),
-      margin: const EdgeInsets.all(0.0),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
