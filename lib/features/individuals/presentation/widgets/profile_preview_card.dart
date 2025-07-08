@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:cvpr_face_recognition/config/config.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cvpr_face_recognition/features/shared/shared.dart';
 import 'package:cvpr_face_recognition/features/individuals/individuals.dart';
 
 class ProfilePreviewCard extends StatelessWidget {
