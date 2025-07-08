@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cvpr_face_recognition/config/theme/custom_slider_thumb_shape.dart';
+import 'custom_slider_thumb_shape.dart';
 
 class AppTheme {
   static ThemeData get darkTheme {
@@ -25,6 +25,7 @@ class AppTheme {
       dividerColor: const Color(0xFF475569),
       cardTheme: _cardTheme(Brightness.dark),
       sliderTheme: _sliderTheme(Brightness.dark),
+      switchTheme: _switchTheme(Brightness.dark),
       elevatedButtonTheme: _elevatedButtonTheme(Brightness.dark),
       textButtonTheme: _textButtonTheme(Brightness.dark),
       outlinedButtonTheme: _outlinedButtonTheme(Brightness.dark),
@@ -54,6 +55,7 @@ class AppTheme {
       dividerColor: const Color(0xFF1E293B),
       cardTheme: _cardTheme(Brightness.light),
       sliderTheme: _sliderTheme(Brightness.light),
+      switchTheme: _switchTheme(Brightness.light),
       elevatedButtonTheme: _elevatedButtonTheme(Brightness.light),
       textButtonTheme: _textButtonTheme(Brightness.light),
       outlinedButtonTheme: _outlinedButtonTheme(Brightness.light),
@@ -104,10 +106,49 @@ class AppTheme {
         fontSize: 12,
         fontWeight: FontWeight.w500,
       ),
-      // Personalizar el borde del thumb
       trackShape: const RoundedRectSliderTrackShape(),
     );
   }
+
+  static SwitchThemeData _switchTheme(Brightness brightness) {
+    final isDark = brightness == Brightness.dark;
+    final activeTrackColor = isDark
+        ? const Color(0xFF3B82F6)
+        : const Color(0xFF2563EB);
+    final inactiveTrackColor = isDark
+        ? const Color(0xFF475569)
+        : const Color(0xFFCBD5E1);
+    final thumbColor = isDark ? const Color(0xFF020817) : Colors.white;
+
+    return SwitchThemeData(
+      thumbColor: WidgetStateProperty.resolveWith<Color>((states) {
+        if (states.contains(WidgetState.selected)) {
+          return thumbColor;
+        }
+        return thumbColor;
+      }),
+      trackColor: WidgetStateProperty.resolveWith<Color>((states) {
+        if (states.contains(WidgetState.selected)) {
+          return activeTrackColor;
+        }
+        return inactiveTrackColor;
+      }),
+      trackOutlineColor: WidgetStateProperty.resolveWith<Color>((states) {
+        if (states.contains(WidgetState.selected)) {
+          return activeTrackColor;
+        }
+        return inactiveTrackColor;
+      }),
+      overlayColor: WidgetStateProperty.all(
+        activeTrackColor.withValues(alpha: 0.1),
+      ),
+      splashRadius: 20.0,
+      thumbIcon: WidgetStateProperty.all(null),
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+    );
+  }
+
+  // ... resto de métodos sin cambios ...
 
   static TextTheme _textTheme(Brightness brightness) {
     final isDark = brightness == Brightness.dark;
