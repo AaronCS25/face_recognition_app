@@ -22,6 +22,7 @@ class AppTheme {
       ),
       cardColor: const Color(0xFF1E293B),
       dividerColor: const Color(0xFF475569),
+      cardTheme: _cardTheme(Brightness.dark),
       elevatedButtonTheme: _elevatedButtonTheme(Brightness.dark),
       textButtonTheme: _textButtonTheme(Brightness.dark),
       outlinedButtonTheme: _outlinedButtonTheme(Brightness.dark),
@@ -49,9 +50,26 @@ class AppTheme {
       ),
       cardColor: const Color(0xFFF8FAFC),
       dividerColor: const Color(0xFFCBD5E1),
+      cardTheme: _cardTheme(Brightness.light),
       elevatedButtonTheme: _elevatedButtonTheme(Brightness.light),
       textButtonTheme: _textButtonTheme(Brightness.light),
       outlinedButtonTheme: _outlinedButtonTheme(Brightness.light),
+    );
+  }
+
+  static CardThemeData _cardTheme(Brightness brightness) {
+    final isDark = brightness == Brightness.dark;
+    return CardThemeData(
+      elevation: 0,
+      margin: const EdgeInsets.all(0.0),
+      shape: RoundedRectangleBorder(
+        side: BorderSide(
+          color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+          width: 0.8,
+        ),
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      color: isDark ? const Color(0xFF1E293B) : const Color(0xFFF8FAFC),
     );
   }
 
@@ -59,12 +77,18 @@ class AppTheme {
     final isDark = brightness == Brightness.dark;
     return TextTheme(
       headlineLarge: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.w600,
+        fontSize: 24,
+        fontWeight: FontWeight.w700,
         height: 28 / 18,
         color: isDark ? Colors.white : const Color(0xFF0F172A),
       ),
       headlineMedium: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.w600,
+        height: 28 / 18,
+        color: isDark ? Colors.white : const Color(0xFF0F172A),
+      ),
+      headlineSmall: TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.w500,
         height: 28 / 18,

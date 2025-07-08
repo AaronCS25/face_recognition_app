@@ -17,7 +17,7 @@ class HistoryView extends StatelessWidget {
             const SizedBox(width: 8),
             Text(
               "Recognition History",
-              style: Theme.of(context).textTheme.headlineLarge,
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
           ],
         ),

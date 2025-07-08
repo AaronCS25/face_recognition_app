@@ -16,7 +16,7 @@ class IndividualsView extends StatelessWidget {
           children: [
             const Icon(Icons.people_alt_outlined, size: 20),
             const SizedBox(width: 8),
-            Text("Unique Individuals", style: theme.textTheme.headlineLarge),
+            Text("Unique Individuals", style: theme.textTheme.headlineSmall),
           ],
         ),
       ),
