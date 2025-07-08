@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cvpr_face_recognition/config/theme/custom_slider_thumb_shape.dart';
 
 class AppTheme {
   static ThemeData get darkTheme {
@@ -23,6 +24,7 @@ class AppTheme {
       cardColor: const Color(0xFF1E293B),
       dividerColor: const Color(0xFF475569),
       cardTheme: _cardTheme(Brightness.dark),
+      sliderTheme: _sliderTheme(Brightness.dark),
       elevatedButtonTheme: _elevatedButtonTheme(Brightness.dark),
       textButtonTheme: _textButtonTheme(Brightness.dark),
       outlinedButtonTheme: _outlinedButtonTheme(Brightness.dark),
@@ -51,6 +53,7 @@ class AppTheme {
       cardColor: const Color(0xFFF8FAFC),
       dividerColor: const Color(0xFF1E293B),
       cardTheme: _cardTheme(Brightness.light),
+      sliderTheme: _sliderTheme(Brightness.light),
       elevatedButtonTheme: _elevatedButtonTheme(Brightness.light),
       textButtonTheme: _textButtonTheme(Brightness.light),
       outlinedButtonTheme: _outlinedButtonTheme(Brightness.light),
@@ -70,6 +73,39 @@ class AppTheme {
         borderRadius: BorderRadius.circular(8.0),
       ),
       color: isDark ? const Color(0xFF1E293B) : const Color(0xFFF8FAFC),
+    );
+  }
+
+  static SliderThemeData _sliderTheme(Brightness brightness) {
+    final isDark = brightness == Brightness.dark;
+    final activeTrackColor = isDark
+        ? const Color(0xFF3B82F6)
+        : const Color(0xFF2563EB);
+    final inactiveTrackColor = isDark
+        ? const Color(0xFF475569)
+        : const Color(0xFFCBD5E1);
+
+    return SliderThemeData(
+      trackHeight: 4.0,
+      activeTrackColor: activeTrackColor,
+      inactiveTrackColor: inactiveTrackColor,
+      thumbColor: isDark ? const Color(0xFF020817) : Colors.white,
+      thumbShape: CustomSliderThumbShape(
+        thumbRadius: 12.0,
+        thumbColor: isDark ? const Color(0xFF020817) : Colors.white,
+        borderColor: activeTrackColor,
+        borderWidth: 2.0,
+      ),
+      overlayColor: activeTrackColor.withValues(alpha: 0.1),
+      overlayShape: const RoundSliderOverlayShape(overlayRadius: 20.0),
+      valueIndicatorColor: activeTrackColor,
+      valueIndicatorTextStyle: const TextStyle(
+        color: Colors.white,
+        fontSize: 12,
+        fontWeight: FontWeight.w500,
+      ),
+      // Personalizar el borde del thumb
+      trackShape: const RoundedRectSliderTrackShape(),
     );
   }
 
