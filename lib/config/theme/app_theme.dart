@@ -5,16 +5,17 @@ class AppTheme {
   static ThemeData get darkTheme {
     return ThemeData(
       brightness: Brightness.dark,
-      scaffoldBackgroundColor: const Color(0xFF0F172A),
+      scaffoldBackgroundColor: const Color(0xFF020817),
       fontFamily: 'Inter',
       textTheme: _textTheme(Brightness.dark),
       colorScheme: const ColorScheme.dark(
-        surface: Color(0xFF0F172A),
+        surface: Color(0xFF020817),
         primary: Color(0xFF3B82F6),
         secondary: Color(0xFF1D4ED8),
         error: Color(0xFFEF4444),
         onPrimary: Colors.white,
         onSecondary: Color(0xFFCBD5E1),
+        outline: Color(0xFF1E293B),
       ),
       appBarTheme: const AppBarTheme(
         backgroundColor: Color(0xFF1E293B),
@@ -22,10 +23,11 @@ class AppTheme {
         elevation: 1,
       ),
       cardColor: const Color(0xFF1E293B),
-      dividerColor: const Color(0xFF475569),
+      dividerColor: const Color(0xFF1E293B),
       cardTheme: _cardTheme(Brightness.dark),
       sliderTheme: _sliderTheme(Brightness.dark),
       switchTheme: _switchTheme(Brightness.dark),
+      dropdownMenuTheme: _dropdownMenuTheme(Brightness.dark),
       elevatedButtonTheme: _elevatedButtonTheme(Brightness.dark),
       textButtonTheme: _textButtonTheme(Brightness.dark),
       outlinedButtonTheme: _outlinedButtonTheme(Brightness.dark),
@@ -45,6 +47,7 @@ class AppTheme {
         error: Color(0xFFDC2626),
         onPrimary: Colors.white,
         onSecondary: Color(0xFF475569),
+        outline: Color(0xFFE2E8F0),
       ),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.white,
@@ -56,6 +59,7 @@ class AppTheme {
       cardTheme: _cardTheme(Brightness.light),
       sliderTheme: _sliderTheme(Brightness.light),
       switchTheme: _switchTheme(Brightness.light),
+      dropdownMenuTheme: _dropdownMenuTheme(Brightness.light),
       elevatedButtonTheme: _elevatedButtonTheme(Brightness.light),
       textButtonTheme: _textButtonTheme(Brightness.light),
       outlinedButtonTheme: _outlinedButtonTheme(Brightness.light),
@@ -74,7 +78,7 @@ class AppTheme {
         ),
         borderRadius: BorderRadius.circular(8.0),
       ),
-      color: isDark ? const Color(0xFF1E293B) : const Color(0xFFF8FAFC),
+      color: isDark ? const Color(0xFF1E293B) : Colors.white,
     );
   }
 
@@ -148,7 +152,67 @@ class AppTheme {
     );
   }
 
-  // ... resto de métodos sin cambios ...
+  static DropdownMenuThemeData _dropdownMenuTheme(Brightness brightness) {
+    final isDark = brightness == Brightness.dark;
+
+    final lightBorderColor = const Color(0xFFE2E8F0);
+    final darkBorderColor = const Color(0xFF1E293B);
+    final lightBgColor = Colors.white;
+    final darkBgColor = const Color(0xFF020817);
+
+    return DropdownMenuThemeData(
+      textStyle: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        color: isDark ? Colors.white : Colors.black,
+      ),
+
+      menuStyle: MenuStyle(
+        backgroundColor: WidgetStateProperty.all(
+          isDark ? darkBgColor : lightBgColor,
+        ),
+        elevation: WidgetStateProperty.all(1),
+        shape: WidgetStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+
+            side: BorderSide(
+              color: isDark ? darkBorderColor : lightBorderColor,
+              width: 1.0,
+            ),
+          ),
+        ),
+        padding: WidgetStateProperty.all(
+          const EdgeInsets.symmetric(vertical: 4),
+        ),
+      ),
+
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: isDark ? darkBgColor : lightBgColor,
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 12,
+        ),
+
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(6),
+          borderSide: BorderSide(
+            color: isDark ? darkBorderColor : lightBorderColor,
+            width: 1.0,
+          ),
+        ),
+
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(6),
+          borderSide: BorderSide(
+            color: isDark ? const Color(0xFF3B82F6) : const Color(0xFF2563EB),
+            width: 1.5,
+          ),
+        ),
+      ),
+    );
+  }
 
   static TextTheme _textTheme(Brightness brightness) {
     final isDark = brightness == Brightness.dark;
